@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class Book {
+private:
+    string title;
+    int pages;
+
+public:
+    Book(string t, int p) {
+        title = t;
+        pages = p;
+        cout << "Parameterized Constructor called for: " << title << endl;
+    }
+
+    Book(const Book &b) {
+        title = b.title;
+        pages = b.pages;
+        cout << "Copy Constructor called for: " << title << endl;
+    }
+
+    ~Book() {
+        cout << "Destructor called for: " << title << endl;
+    }
+
+    void display() {
+        cout << "Title: " << title << ", Pages: " << pages << endl;
+    }
+};
+
+int main() {
+    Book book1("C++ Programming", 450);
+    book1.display();
+
+    Book book2 = book1;
+    book2.display();
+
+    return 0;
+}
