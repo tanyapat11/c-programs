@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+
+class Employee {
+private:
+    std::string name;
+    int id;
+    double baseSalary;
+
+public:
+    Employee() {
+        name = "Unknown";
+        id = 0;
+        baseSalary = 0.0;
+    }
+
+    Employee(std::string empName, int empId, double empSalary) {
+        name = empName;
+        id = empId;
+        baseSalary = empSalary;
+    }
+
+    void calculateAndDisplaySalary(double bonus) {
+        double totalSalary = baseSalary + bonus;
+        std::cout << "\n--- Employee Details ---" << std::endl;
+        std::cout << "ID          : " << id << std::endl;
+        std::cout << "Name        : " << name << std::endl;
+        std::cout << "Base Salary : $" << baseSalary << std::endl;
+        std::cout << "Bonus       : $" << bonus << std::endl;
+        std::cout << "Total Salary: $" << totalSalary << std::endl;
+        std::cout << "------------------------\n" << std::endl;
+    }
+};
+
+int main() {
+    Employee employee1;
+    employee1.calculateAndDisplaySalary(0.0);
+
+    Employee employee2("Alice Smith", 101, 55000.50);
+    employee2.calculateAndDisplaySalary(4500.25);
+
+    return 0;
+}
