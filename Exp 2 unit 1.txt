@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+class Rectangle {
+private:
+    double length;
+    double breadth;
+
+public:
+    void setDimensions(double l, double b) {
+        length = l;
+        breadth = b;
+    }
+
+    double calculateArea();
+    double calculatePerimeter();
+};
+
+double Rectangle::calculateArea() {
+    return length * breadth;
+}
+
+double Rectangle::calculatePerimeter() {
+    return 2 * (length + breadth);
+}
+
+int main() {
+    Rectangle rect;
+    double inputLength, inputBreadth;
+
+    cout << "Enter length: ";
+    cin >> inputLength;
+    cout << "Enter breadth: ";
+    cin >> inputBreadth;
+
+    rect.setDimensions(inputLength, inputBreadth);
+
+    cout << "Area: " << rect.calculateArea() << endl;
+    cout << "Perimeter: " << rect.calculatePerimeter() << endl;
+
+    return 0;
+}
